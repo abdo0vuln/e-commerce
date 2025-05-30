@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ShoppingBag, Star, Heart } from "lucide-react"
+import { ShoppingBag, Star } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -22,7 +22,6 @@ const categories = [
 
 export default function HomePage() {
 	const [searchQuery, setSearchQuery] = useState("")
-	const [wishlist, setWishlist] = useState<string[]>([])
 	const { addToCart, cartItems, total, clearCart } = useCart()
 	const { user } = useAuth()
 	const [featuredProducts, setFeaturedProducts] = useState<Product[]>([])
@@ -55,10 +54,6 @@ export default function HomePage() {
 
 		fetchProducts()
 	}, [])
-
-	const toggleWishlist = (productId: string) => {
-		setWishlist((prev) => (prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]))
-	}
 
 	const handleAddToCart = (product: any) => {
 		addToCart({
@@ -174,14 +169,6 @@ export default function HomePage() {
 										className="mx-auto h-40 w-40 object-cover rounded-lg"
 									/>
 									{product.isNew && <Badge className="absolute top-2 left-2 bg-green-500">New</Badge>}
-									<Button
-										variant="ghost"
-										size="icon"
-										className={`absolute top-2 right-2 ${wishlist.includes(product._id?.toString() || "") ? "text-red-500" : "text-gray-400"}`}
-										onClick={() => toggleWishlist(product._id?.toString() || "")}
-									>
-										<Heart className="h-5 w-5" fill={wishlist.includes(product._id?.toString() || "") ? "currentColor" : "none"} />
-									</Button>
 									<div className="mt-4 text-lg font-semibold text-gray-900">{product.name}</div>
 									<div className="flex items-center justify-center mt-2">
 										<Star className="h-4 w-4 text-yellow-400" />
@@ -231,50 +218,107 @@ export default function HomePage() {
 							<h3 className="font-semibold mb-4">Quick Links</h3>
 							<ul className="space-y-2 text-gray-400">
 								<li>
-									<Link href="/about" className="hover:text-white">
-										About Us
-									</Link>
-								</li>
-								<li>
-									<Link href="/contact" className="hover:text-white">
-										Contact
-									</Link>
-								</li>
-								<li>
-									<Link href="/shipping" className="hover:text-white">
-										Shipping Info
-									</Link>
-								</li>
-								<li>
-									<Link href="/returns" className="hover:text-white">
-										Returns
-									</Link>
-								</li>
+									
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    About Us
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Contact
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Shipping Info
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Returns
+  </a>
+</li>
 							</ul>
 						</div>
 						<div>
 							<h3 className="font-semibold mb-4">Categories</h3>
 							<ul className="space-y-2 text-gray-400">
-								<li>
-									<Link href="/traditional" className="hover:text-white">
-										Traditional
-									</Link>
-								</li>
-								<li>
-									<Link href="/modern" className="hover:text-white">
-										Modern
-									</Link>
-								</li>
-								<li>
-									<Link href="/hijab" className="hover:text-white">
-										Hijab
-									</Link>
-								</li>
-								<li>
-									<Link href="/abaya" className="hover:text-white">
-										Abaya
-									</Link>
-								</li>
+							<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Traditional
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Modern
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Hijab
+  </a>
+</li>
+<li>
+  <a 
+    href="#" 
+    className="hover:text-white"
+    onClick={(e) => {
+      e.preventDefault();
+      alert('this page is not here yet!');
+    }}
+  >
+    Abaya
+  </a>
+</li>
 							</ul>
 						</div>
 						<div>
